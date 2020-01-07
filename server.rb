@@ -34,6 +34,11 @@ get "/api/v1/recipes" do
   json dishes
 end
 
+get "/api/v1/longest-recipe" do
+  longest_dish = read_dishes.max_by(&:length)
+  json longest_dish
+end
+
 get "*" do
   erb :home
 end
